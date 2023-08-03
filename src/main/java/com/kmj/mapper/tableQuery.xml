@@ -13,6 +13,6 @@
         DELETE FROM EMPLOYEE WHERE EMP_ID = ?
     </entry>
     <entry key="updateEmployee">
-        UPDATE EMPLOYEE SET JOB_CODE = ?, SAL_LEVEL = ? WHERE EMP_ID = ?
+        UPDATE EMPLOYEE SET DEPT_CODE = ?, JOB_CODE = ?, SAL_LEVEL = ? WHERE EMP_ID = ?
     </entry>
 </properties>

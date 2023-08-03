@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Scanner;
 
-import static com.kmj.common.JDBCConnect.close;
-import static com.kmj.common.JDBCConnect.getConnection;
+import static com.kmj.common.JDBCTemplate.close;
+import static com.kmj.common.JDBCTemplate.getConnection;
 
 public class EmployeeInsert {
 

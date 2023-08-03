@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Scanner;
 
-import static com.kmj.common.JDBCConnect.close;
-import static com.kmj.common.JDBCConnect.getConnection;
+import static com.kmj.common.JDBCTemplate.close;
+import static com.kmj.common.JDBCTemplate.getConnection;
 
 public class EmployeeUpdate {
 
@@ -21,11 +21,13 @@ public class EmployeeUpdate {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("사원의 직급 및 연봉 정보를 수정하실 수 있습니다.");
+        System.out.print("부서번호를 무엇으로 수정할까요? ");
+        String deptCode = sc.nextLine();
         System.out.print("직급번호를 무엇으로 수정할까요? ");
         String jobCode = sc.nextLine();
         System.out.print("연봉단계를 얼마로 수정할까요? ");
         String salLevel = sc.nextLine();
-        System.out.print("정보를 수정할 사원의 사원번호는?");
+        System.out.print("정보를 수정할 사원의 사원번호는? ");
         String empId = sc.nextLine();
 
         int result = 0;
@@ -36,9 +38,10 @@ public class EmployeeUpdate {
             String query = prop.getProperty("updateEmployee");
 
             pstmt = con.prepareStatement(query);
-            pstmt.setString(1, jobCode);
-            pstmt.setString(2, salLevel);
-            pstmt.setString(3, empId);
+            pstmt.setString(1, deptCode);
+            pstmt.setString(2, jobCode);
+            pstmt.setString(3, salLevel);
+            pstmt.setString(4, empId);
             result = pstmt.executeUpdate();
 
         } catch (IOException e) {
